@@ -6,6 +6,6 @@ npm init -y
 npm install express socket.io serialport
 
 una vez termine de cargar y este todo instalado 
-correrlo con el siguiente comando
+correr el siguiente comando
 
 node server.js
