@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BarberApp ESP32</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="dashboard">
+    <section class="hero">
+      <div>
+        <span class="tag">Sistema IoT</span>
+        <h1>BarberApp ESP32</h1>
+        <p>Control de asistencia para citas de barbería conectado por USB.</p>
+      </div>
+
+      <div class="status-pill" id="conexion">
+        ● Conectado
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="card principal">
+        <div class="icono" id="iconoEstado">⌛</div>
+        <p class="label">Estado actual de la cita</p>
+        <h2 id="estado">Esperando acción...</h2>
+        <p class="hora">Última actualización: <span id="hora">--:--:--</span></p>
+      </div>
+
+      <div class="card info">
+        <p class="label">Cliente asignado</p>
+        <h3>Cliente en espera</h3>
+        <p>Presiona el botón físico del ESP32 para registrar la asistencia.</p>
+
+        <div class="acciones">
+          <div>
+            <span class="mini verde"></span>
+            Botón azul: asistió
+          </div>
+          <div>
+            <span class="mini rojo"></span>
+            Botón rojo: no asistió
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="estadisticas">
+      <div class="stat">
+        <p>Asistencias</p>
+        <h3 id="contadorAsistio">0</h3>
+      </div>
+
+      <div class="stat">
+        <p>No asistieron</p>
+        <h3 id="contadorNoAsistio">0</h3>
+      </div>
+
+      <div class="stat">
+        <p>Total registros</p>
+        <h3 id="contadorTotal">0</h3>
+      </div>
+    </section>
+
+    <section class="historial-card">
+      <div class="historial-header">
+        <h2>Historial de eventos</h2>
+        <button id="limpiar">Limpiar</button>
+      </div>
+
+      <ul id="historial">
+        <li class="vacio">Todavía no hay registros.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
